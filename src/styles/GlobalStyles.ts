@@ -13,5 +13,6 @@ export const GlobalStyles = createGlobalStyle`
 
   body {
     font-family: 'PT Sans', sans-serif;
+    background: var(--background);
   }
 `;
