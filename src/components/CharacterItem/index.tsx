@@ -1,26 +1,46 @@
 import { Container as Tr } from "./styles";
 
-const CharacterItem = () => {
+import { CharacterType } from "../../types/CharacterType";
+
+const CharacterItem = ({
+  id,
+  name,
+  thumbnail,
+  series,
+  events,
+}: CharacterType) => {
+  const imgUrl = `${thumbnail.path}.${thumbnail.extension}`;
+
   return (
     <Tr>
       <td className="characterName">
         <div>
-          <img src="/person.png" alt="" />
+          <img src={imgUrl} alt={name} />
         </div>
-        <strong>Abner Jenkins</strong>
+        <strong>{name}</strong>
       </td>
       <td className="characterSeries">
         <ul>
-          <li>Iron Man: Armor Wars</li>
-          <li>Old Man Hawkeye</li>
-          <li>Fantastic Four Visionaries: Walter Simonson Vol. 1</li>
+          {series.items.length >= 1 &&
+            series.items
+              .slice(0, 3)
+              .map((serieInfo, index) => <li key={index}>{serieInfo.name}</li>)}
+
+          {series.items.length <= 0 && (
+            <li className="notEvent">Não disponível</li>
+          )}
         </ul>
       </td>
       <td className="characterEvents">
         <ul>
-          <li>Iron Man: Armor Wars</li>
-          <li>Old Man Hawkeye</li>
-          <li>Fantastic Four Visionaries: Walter Simonson Vol. 1</li>
+          {events.items.length >= 1 &&
+            events.items
+              .slice(0, 3)
+              .map((eventInfo, index) => <li key={index}>{eventInfo.name}</li>)}
+
+          {events.items.length <= 0 && (
+            <li className="notEvent">Não disponível</li>
+          )}
         </ul>
       </td>
     </Tr>

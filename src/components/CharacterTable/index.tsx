@@ -1,8 +1,13 @@
 import { Container as Table } from "./styles";
 
 import CharacterItem from "../CharacterItem";
+import { CharacterType } from "../../types/CharacterType";
 
-const CharacterTable = () => {
+type Props = {
+  data: CharacterType[];
+};
+
+const CharacterTable = ({ data }: Props) => {
   return (
     <Table>
       <thead>
@@ -13,7 +18,16 @@ const CharacterTable = () => {
         </tr>
       </thead>
       <tbody>
-        <CharacterItem />
+        {data.map((item) => (
+          <CharacterItem
+            key={item.id}
+            id={item.id}
+            name={item.name}
+            thumbnail={item.thumbnail}
+            series={item.series}
+            events={item.events}
+          />
+        ))}
       </tbody>
     </Table>
   );

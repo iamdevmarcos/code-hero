@@ -1,9 +1,32 @@
+import React, { useState, useEffect } from "react";
+
 import { Container, Area, Header, Content } from "./App.styles";
 import logo from "./images/logo.svg";
 
 import CharacterTable from "./components/CharacterTable";
+import Loading from "./components/Loading";
 
-const App = () => {
+import Api from "./services/api";
+
+const App: React.FC = () => {
+  const [loading, setLoading] = useState(false);
+  const [list, setList] = useState([]);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      setLoading(true);
+
+      const res = await Api.getCharacters();
+      if (res.data.code === 200) {
+        setList(res.data.data.results);
+        console.log(res);
+        setLoading(false);
+      }
+    };
+
+    fetchData();
+  }, []);
+
   return (
     <Container>
       <Header>
@@ -26,7 +49,9 @@ const App = () => {
           </div>
 
           <div className="characterArea">
-            <CharacterTable />
+            {!loading && list.length > 0 && <CharacterTable data={list} />}
+
+            {loading && <Loading />}
           </div>
         </Content>
       </Area>
