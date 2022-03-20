@@ -18,9 +18,9 @@ const api = {
     );
     return res;
   },
-  getSpecificCharacter: async () => {
+  getSpecificCharacter: async (id: number) => {
     const res = await http.get(
-      `characters/1016823?ts=${time}&apikey=${publicKey}&hash=${hash}`
+      `characters/${id}?ts=${time}&apikey=${publicKey}&hash=${hash}`
     );
     return res;
   },
