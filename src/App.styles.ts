@@ -30,6 +30,8 @@ export const Content = styled.div`
 export const Pagination = styled.div`
   width: 100%;
   background-color: #fff;
+  position: relative;
+  bottom: 0;
 
   display: flex;
   align-items: center;
