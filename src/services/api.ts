@@ -14,7 +14,7 @@ const hash = md5(time + privateKey + publicKey);
 const api = {
   getCharacters: async () => {
     const res = await http.get(
-      `characters?ts=${time}&apikey=${publicKey}&hash=${hash}&limit=20`
+      `characters?ts=${time}&apikey=${publicKey}&hash=${hash}&limit=10`
     );
     return res;
   },
