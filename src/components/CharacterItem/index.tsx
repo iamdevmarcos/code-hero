@@ -27,7 +27,7 @@ const CharacterItem = ({
               .map((serieInfo, index) => <li key={index}>{serieInfo.name}</li>)}
 
           {series.items.length <= 0 && (
-            <li className="notEvent">Não disponível</li>
+            <li className="noResult">Não disponível</li>
           )}
         </ul>
       </td>
@@ -39,7 +39,7 @@ const CharacterItem = ({
               .map((eventInfo, index) => <li key={index}>{eventInfo.name}</li>)}
 
           {events.items.length <= 0 && (
-            <li className="notEvent">Não disponível</li>
+            <li className="noResult">Não disponível</li>
           )}
         </ul>
       </td>

@@ -49,7 +49,7 @@ export const Container = styled.tr`
         color: var(--text-title);
         font-size: 14px;
 
-        &.notEvent {
+        &.noResult {
           color: #ff0000;
           font-weight: bold;
         }
