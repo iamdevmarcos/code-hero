@@ -17,18 +17,6 @@ const App: React.FC = () => {
 
   const [currentPage, setCurrentPage] = useState(1);
 
-  const fetchData = async () => {
-    setLoading(true);
-    const offset = (currentPage - 1) * 10;
-
-    const res = await Api.getCharacters(offset);
-    if (res.data.code === 200) {
-      setList(res.data.data.results);
-      console.log(res);
-      setLoading(false);
-    }
-  };
-
   const filterCharacter = (characterName: string) => {
     let newList = [...list];
     newList = newList.filter((item) =>
@@ -45,20 +33,6 @@ const App: React.FC = () => {
   const handlePagination = (page: number) => {
     setCurrentPage(page);
   };
-
-  useEffect(() => {
-    const fetchData = async () => {
-      setLoading(true);
-
-      const res = await Api.getCharacters();
-      if (res.data.code === 200) {
-        setList(res.data.data.results);
-        console.log(res);
-        setLoading(false);
-      }
-    };
-    fetchData();
-  }, []);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -87,7 +61,7 @@ const App: React.FC = () => {
 
       <Area>
         <Content>
-          <SearchArea filterCharacter={filterCharacter} fetchData={fetchData} />
+          <SearchArea filterCharacter={filterCharacter} />
 
           <div className="characterArea">
             {!loading && list.length > 0 && <CharacterTable data={list} />}

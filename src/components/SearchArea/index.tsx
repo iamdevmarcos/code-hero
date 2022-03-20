@@ -1,13 +1,13 @@
 import { useState } from "react";
-
 import { Container } from "./styles";
+
+import { reloadPage } from "../../utils/window";
 
 type Props = {
   filterCharacter: (characterName: string) => void;
-  fetchData: () => void;
 };
 
-const SearchArea = ({ filterCharacter, fetchData }: Props) => {
+const SearchArea = ({ filterCharacter }: Props) => {
   const [characterName, setCharacterName] = useState("");
 
   return (
@@ -32,7 +32,7 @@ const SearchArea = ({ filterCharacter, fetchData }: Props) => {
             Buscar
           </button>
 
-          <button type="button" onClick={() => fetchData()}>
+          <button type="button" onClick={() => reloadPage()}>
             Resetar
           </button>
         </div>
