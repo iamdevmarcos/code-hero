@@ -15,16 +15,12 @@ const App: React.FC = () => {
   const [loading, setLoading] = useState(false);
   const [list, setList] = useState<CharacterType[]>([]);
 
-  const [totalItems, setTotalItems] = useState(0);
-  const [pageCount, setPageCount] = useState(0);
-
   const fetchData = async () => {
     setLoading(true);
 
     const res = await Api.getCharacters();
     if (res.data.code === 200) {
       setList(res.data.data.results);
-      setTotalItems(res.data.data.total);
       setLoading(false);
     }
   };
@@ -45,14 +41,6 @@ const App: React.FC = () => {
   useEffect(() => {
     fetchData();
   }, []);
-
-  useEffect(() => {
-    if (list.length > 0) {
-      setPageCount(Math.ceil(totalItems / list.length));
-    } else {
-      setPageCount(0);
-    }
-  }, [totalItems, list.length]);
 
   // creating pagination array and setting limit to 5 pages
   const pagination = [];
@@ -77,9 +65,7 @@ const App: React.FC = () => {
       </Area>
       <Pagination>
         {pagination.map((item, index) => (
-          <div key={index}>
-            {item} - {pageCount}
-          </div>
+          <div key={index}>{item}</div>
         ))}
       </Pagination>
     </Container>
