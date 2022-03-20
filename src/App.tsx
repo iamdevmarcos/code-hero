@@ -77,7 +77,9 @@ const App: React.FC = () => {
       </Area>
       <Pagination>
         {pagination.map((item, index) => (
-          <div key={index}>{item}</div>
+          <div key={index}>
+            {item} - {pageCount}
+          </div>
         ))}
       </Pagination>
     </Container>
