@@ -5,9 +5,10 @@ export const Container = styled.div`
 `;
 
 export const Area = styled.div`
-  max-width: 980px;
+  max-width: 1000px;
   margin: 0 auto;
 `;
+
 export const Header = styled.div`
   background: #fff;
   padding: 20px;
@@ -19,6 +20,10 @@ export const Header = styled.div`
   .leftSide {
     width: 96px;
     height: 24px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
     img {
       width: 100%;
@@ -34,6 +39,7 @@ export const Header = styled.div`
 
 export const Content = styled.div`
   margin-top: 40px;
+  padding: 0 20px;
 
   h1 {
     font-family: "PT Sans Caption", sans-serif;
@@ -52,6 +58,29 @@ export const Content = styled.div`
       flex-direction: column;
       align-items: flex-start;
       justify-content: center;
+
+      .searchInput {
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+
+        button {
+          padding: 10px;
+          margin-left: 10px;
+
+          background: #fff;
+          border: 0;
+          outline: 0;
+          border: 1px solid transparent;
+          border-radius: 5px;
+
+          cursor: pointer;
+
+          &:hover {
+            opacity: 0.5;
+          }
+        }
+      }
 
       h2 {
         font-size: 18px;

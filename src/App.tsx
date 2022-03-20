@@ -44,7 +44,11 @@ const App: React.FC = () => {
             <h1>Busca de Personagens</h1>
             <div>
               <h2>Nome do personagem</h2>
-              <input type="search" placeholder="Search" />
+
+              <div className="searchInput">
+                <input type="search" placeholder="Digite aqui" />
+                <button type="button">Buscar</button>
+              </div>
             </div>
           </div>
 
