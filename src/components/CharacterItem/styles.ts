@@ -53,6 +53,10 @@ export const Container = styled.tr`
           color: #ff0000;
           font-weight: bold;
         }
+
+        @media (max-width: 680px) {
+          font-size: 12px;
+        }
       }
     }
   }

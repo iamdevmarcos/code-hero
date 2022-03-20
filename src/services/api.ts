@@ -18,6 +18,12 @@ const api = {
     );
     return res;
   },
+  getSpecificCharacter: async () => {
+    const res = await http.get(
+      `characters/1016823?ts=${time}&apikey=${publicKey}&hash=${hash}`
+    );
+    return res;
+  },
 };
 
 export default api;
