@@ -43,16 +43,12 @@ const App: React.FC = () => {
       if (newList.length > 0) {
         setList(newList);
       } else {
-        alert("Personagem não encontrado! Resetando a lista...");
+        alert("Personagem não encontrado!");
         reloadPage();
       }
     } else {
       alert("Digite o nome do personagem!");
     }
-  };
-
-  const handlePagination = (page: number) => {
-    setCurrentPage(page);
   };
 
   // creating pagination array and setting limit to 5 pages
@@ -82,7 +78,7 @@ const App: React.FC = () => {
             <div
               key={index}
               className={item === currentPage ? "active" : ""}
-              onClick={() => handlePagination(item)}
+              onClick={() => setCurrentPage(item)}
             >
               {item}
             </div>
