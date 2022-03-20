@@ -12,9 +12,9 @@ const time = Number(new Date());
 const hash = md5(time + privateKey + publicKey);
 
 const api = {
-  getCharacters: async () => {
+  getCharacters: async (offset = 0) => {
     const res = await http.get(
-      `characters?ts=${time}&apikey=${publicKey}&hash=${hash}&limit=10`
+      `characters?ts=${time}&apikey=${publicKey}&hash=${hash}&limit=10&offset=${offset}`
     );
     return res;
   },

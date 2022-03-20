@@ -55,5 +55,10 @@ export const Pagination = styled.div`
     &:hover {
       opacity: 0.5;
     }
+
+    &.active {
+      background: #1d252c;
+      color: #fff;
+    }
   }
 `;

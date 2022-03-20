@@ -15,12 +15,16 @@ const App: React.FC = () => {
   const [loading, setLoading] = useState(false);
   const [list, setList] = useState<CharacterType[]>([]);
 
+  const [currentPage, setCurrentPage] = useState(1);
+
   const fetchData = async () => {
     setLoading(true);
+    const offset = (currentPage - 1) * 10;
 
-    const res = await Api.getCharacters();
+    const res = await Api.getCharacters(offset);
     if (res.data.code === 200) {
       setList(res.data.data.results);
+      console.log(res);
       setLoading(false);
     }
   };
@@ -41,6 +45,10 @@ const App: React.FC = () => {
   useEffect(() => {
     fetchData();
   }, []);
+
+  useEffect(() => {
+    fetchData();
+  }, [currentPage]);
 
   // creating pagination array and setting limit to 5 pages
   const pagination = [];
@@ -63,11 +71,19 @@ const App: React.FC = () => {
           </div>
         </Content>
       </Area>
-      <Pagination>
-        {pagination.map((item, index) => (
-          <div key={index}>{item}</div>
-        ))}
-      </Pagination>
+      {!loading && list.length > 0 && (
+        <Pagination>
+          {pagination.map((item, index) => (
+            <div
+              key={index}
+              className={item === currentPage ? "active" : ""}
+              onClick={() => setCurrentPage(item)}
+            >
+              {item}
+            </div>
+          ))}
+        </Pagination>
+      )}
     </Container>
   );
 };
