@@ -1,8 +1,15 @@
 import styled from "styled-components";
 
 export const Container = styled.tr`
-  background: #fff;
+  background: var(--background-white);
   box-shadow: 0px 0px 5px #00000033;
+  transition: all ease-in 0.2s;
+
+  cursor: pointer;
+
+  &:hover {
+    opacity: 0.7;
+  }
 
   td {
     padding: 16px 32px;
@@ -28,7 +35,7 @@ export const Container = styled.tr`
 
       strong {
         font-size: 16px;
-        color: #555555;
+        color: var(--text-title);
       }
     }
 
@@ -39,7 +46,7 @@ export const Container = styled.tr`
       }
 
       li {
-        color: #555;
+        color: var(--text-title);
         font-size: 14px;
 
         &.notEvent {

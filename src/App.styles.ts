@@ -10,7 +10,7 @@ export const Area = styled.div`
 `;
 
 export const Header = styled.div`
-  background: #fff;
+  background: var(--background-white);
   padding: 20px;
 
   display: flex;
@@ -33,7 +33,7 @@ export const Header = styled.div`
   .rightSide {
     font-family: "PT Sans Caption", sans-serif;
     font-size: 14px;
-    color: #555;
+    color: var(--text-title);
   }
 `;
 
@@ -45,7 +45,7 @@ export const Content = styled.div`
     font-family: "PT Sans Caption", sans-serif;
     font-weight: bold;
     font-size: 32px;
-    color: #555;
+    color: var(--text-title);
 
     margin-bottom: 10px;
   }
@@ -68,7 +68,7 @@ export const Content = styled.div`
           padding: 10px;
           margin-left: 10px;
 
-          background: #fff;
+          background: var(--background-white);
           border: 0;
           outline: 0;
           border: 1px solid transparent;
@@ -84,7 +84,7 @@ export const Content = styled.div`
 
       h2 {
         font-size: 18px;
-        color: #555;
+        color: var(--text-title);
 
         margin-bottom: 10px;
       }
@@ -93,7 +93,7 @@ export const Content = styled.div`
         padding: 10px 15px;
         width: 300px;
 
-        background: #fff;
+        background: var(--background-white);
         outline: 0;
         border: 1px solid transparent;
         border-radius: 5px;
