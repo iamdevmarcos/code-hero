@@ -33,7 +33,7 @@ const SearchArea = ({ filterCharacter, fetchData }: Props) => {
           </button>
 
           <button type="button" onClick={() => fetchData()}>
-            Resetar Lista
+            Resetar
           </button>
         </div>
       </div>

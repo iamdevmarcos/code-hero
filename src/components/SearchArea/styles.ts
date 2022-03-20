@@ -60,4 +60,12 @@ export const Container = styled.div`
       }
     }
   }
+
+  @media (max-width: 550px) {
+    div {
+      input {
+        width: 150px;
+      }
+    }
+  }
 `;

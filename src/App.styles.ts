@@ -35,6 +35,12 @@ export const Header = styled.div`
     font-size: 14px;
     color: var(--text-title);
   }
+
+  @media (max-width: 550px) {
+    .rightSide {
+      font-size: 10px;
+    }
+  }
 `;
 
 export const Content = styled.div`
