@@ -11,6 +11,8 @@ import Loading from "./components/Loading";
 
 import Api from "./services/api";
 
+import { reloadPage } from "./utils/window";
+
 const App: React.FC = () => {
   const [list, setList] = useState<CharacterType[]>([]);
   const [loading, setLoading] = useState(false);
@@ -32,15 +34,20 @@ const App: React.FC = () => {
   }, [currentPage]);
 
   const filterCharacter = (characterName: string) => {
-    let newList = [...list];
-    newList = newList.filter((item) =>
-      item.name.toLowerCase().includes(characterName.toLowerCase())
-    );
+    if (characterName !== "") {
+      let newList = [...list];
+      newList = newList.filter((item) =>
+        item.name.toLowerCase().includes(characterName.toLowerCase())
+      );
 
-    if (newList.length > 0) {
-      setList(newList);
+      if (newList.length > 0) {
+        setList(newList);
+      } else {
+        alert("Personagem não encontrado! Resetando a lista...");
+        reloadPage();
+      }
     } else {
-      alert("Personagem não encontrado!");
+      alert("Digite o nome do personagem!");
     }
   };
 
