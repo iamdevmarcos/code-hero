@@ -26,3 +26,34 @@ export const Content = styled.div`
     margin-bottom: 60px;
   }
 `;
+
+export const Pagination = styled.div`
+  width: 100%;
+  background-color: #fff;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 20px;
+
+  div {
+    width: 40px;
+    height: 32px;
+    margin: 0 10px;
+    background: #e5e5e5;
+    font-size: 14px;
+    color: var(--text-title);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 5px;
+    cursor: pointer;
+
+    &:hover {
+      opacity: 0.5;
+    }
+  }
+`;

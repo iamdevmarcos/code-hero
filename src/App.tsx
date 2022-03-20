@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 
-import { Container, Area, Content } from "./App.styles";
+import { Container, Area, Content, Pagination } from "./App.styles";
 
 import { CharacterType } from "./types/CharacterType";
 
@@ -54,9 +54,9 @@ const App: React.FC = () => {
     }
   }, [totalItems, list.length]);
 
-  // creating pagination array and setting limit to 20 pages
+  // creating pagination array and setting limit to 5 pages
   const pagination = [];
-  for (let i = 1; i <= 20; i++) {
+  for (let i = 1; i <= 5; i++) {
     pagination.push(i);
   }
 
@@ -82,6 +82,11 @@ const App: React.FC = () => {
           </div>
         </Content>
       </Area>
+      <Pagination>
+        {pagination.map((item, index) => (
+          <div key={index}>{item}</div>
+        ))}
+      </Pagination>
     </Container>
   );
 };
