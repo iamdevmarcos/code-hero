@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from "react";
 
-import { Container, Area, Header, Content } from "./App.styles";
-import logo from "./images/logo.svg";
+import { Container, Area, Content } from "./App.styles";
 
 import { CharacterType } from "./types/CharacterType";
 
+import Header from "./components/Header";
+import SearchArea from "./components/SearchArea";
 import CharacterTable from "./components/CharacterTable";
 import Loading from "./components/Loading";
-import SearchArea from "./components/SearchArea";
 
 import Api from "./services/api";
 
@@ -62,27 +62,18 @@ const App: React.FC = () => {
 
   return (
     <Container>
-      <Header>
-        <div className="leftSide">
-          <a href="/">
-            <img src={logo} alt="Objective" />
-          </a>
-        </div>
-        <div className="rightSide">
-          <strong>Marcos André</strong> Teste de Front-end
-        </div>
-      </Header>
+      <Header />
 
       <Area>
         <Content>
           <SearchArea filterCharacter={filterCharacter} fetchData={fetchData} />
 
-          <h2>Total de Paginas: {pageCount}</h2>
+          {/* <h2>Total de Paginas: {pageCount}</h2>
           <ul>
             {pagination.map((item, index) => (
               <li key={index}>{item}</li>
             ))}
-          </ul>
+          </ul> */}
 
           <div className="characterArea">
             {!loading && list.length > 0 && <CharacterTable data={list} />}
