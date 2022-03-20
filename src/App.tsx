@@ -68,13 +68,6 @@ const App: React.FC = () => {
         <Content>
           <SearchArea filterCharacter={filterCharacter} fetchData={fetchData} />
 
-          {/* <h2>Total de Paginas: {pageCount}</h2>
-          <ul>
-            {pagination.map((item, index) => (
-              <li key={index}>{item}</li>
-            ))}
-          </ul> */}
-
           <div className="characterArea">
             {!loading && list.length > 0 && <CharacterTable data={list} />}
 
