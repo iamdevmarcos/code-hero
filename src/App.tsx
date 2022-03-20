@@ -12,10 +12,24 @@ import Loading from "./components/Loading";
 import Api from "./services/api";
 
 const App: React.FC = () => {
-  const [loading, setLoading] = useState(false);
   const [list, setList] = useState<CharacterType[]>([]);
+  const [loading, setLoading] = useState(false);
 
   const [currentPage, setCurrentPage] = useState(1);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      setLoading(true);
+      const offset = (currentPage - 1) * 10;
+
+      const res = await Api.getCharacters(offset);
+      if (res.data.code === 200) {
+        setList(res.data.data.results);
+        setLoading(false);
+      }
+    };
+    fetchData();
+  }, [currentPage]);
 
   const filterCharacter = (characterName: string) => {
     let newList = [...list];
@@ -33,21 +47,6 @@ const App: React.FC = () => {
   const handlePagination = (page: number) => {
     setCurrentPage(page);
   };
-
-  useEffect(() => {
-    const fetchData = async () => {
-      setLoading(true);
-      const offset = (currentPage - 1) * 10;
-
-      const res = await Api.getCharacters(offset);
-      if (res.data.code === 200) {
-        setList(res.data.data.results);
-        console.log(res);
-        setLoading(false);
-      }
-    };
-    fetchData();
-  }, [currentPage]);
 
   // creating pagination array and setting limit to 5 pages
   const pagination = [];

@@ -1,6 +1,7 @@
+import React from "react";
 import { Container } from "./styles";
 
-const Loading = () => {
+const Loading: React.FC = () => {
   return (
     <Container>
       <img
