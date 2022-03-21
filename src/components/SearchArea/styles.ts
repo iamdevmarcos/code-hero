@@ -62,7 +62,14 @@ export const Container = styled.div`
   }
 
   @media (max-width: 550px) {
+    h1 {
+      text-align: center;
+      font-size: 28px;
+    }
+
     div {
+      align-items: center;
+
       input {
         width: 150px;
       }
