@@ -7,6 +7,7 @@ import { CharacterType } from "./types/CharacterType";
 import Header from "./components/Header";
 import SearchArea from "./components/SearchArea";
 import CharacterTable from "./components/CharacterTable";
+import PaginationItem from "./components/PaginationItem";
 import Loading from "./components/Loading";
 
 import Api from "./services/api";
@@ -75,13 +76,12 @@ const App: React.FC = () => {
       {!loading && list.length > 0 && (
         <Pagination>
           {pagination.map((item, index) => (
-            <div
+            <PaginationItem
               key={index}
-              className={item === currentPage ? "active" : ""}
-              onClick={() => setCurrentPage(item)}
-            >
-              {item}
-            </div>
+              data={item}
+              currentPage={currentPage}
+              onClick={setCurrentPage}
+            />
           ))}
         </Pagination>
       )}
