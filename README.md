@@ -38,7 +38,7 @@ Depois disso acesse a pasta e instale as dependências executando o seguinte com
 
 ## Executando a aplicação
 
-Execute o comando a baixo para inicializar a aplicação.
+Execute o comando abaixo para inicializar a aplicação.
 
 ```sh
   $ npm start # ou yarn start
